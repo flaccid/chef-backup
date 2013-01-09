@@ -1,18 +1,14 @@
-default[:backup][:backup_user] = 'deploy'
+default['backup']['user'] = 'root'
+#default['backup']['user']['home'] = `echo ~#{node['backup']['user']}`.strip
 
 default[:backup][:name] = "server_backup"
 default[:backup][:description] = "a chef generated server backup"
-
 
 default[:backup][:database][:username] = 'admin_user'
 default[:backup][:database][:password] = 'admin_password'
 default[:backup][:database][:databases] = ['test_database', 'test_db2']
 
-
-default[:backup][:s3][:aws_access_key] = File.read("/home/#{default[:backup][:backup_user]}/.aws/access_key").gsub(/\\n/, "")
-default[:backup][:s3][:aws_secret_key] = File.read("/home/#{default[:backup][:backup_user]}/.aws/secret_key").gsub(/\\n/, "")
 default[:backup][:s3][:bucket_region] = 'us-east-1'
-
 
 # Create this beforehand
 default[:backup][:s3][:bucket_name] = 'bucket_name'
