@@ -30,7 +30,7 @@ p.run_action(:install)
 
 # Install backup, s3sync, fog, mail, whenever
 ['backup', 's3sync', 'fog', 'mail', 'whenever', 'popen4'].each do |rubygem|
- chef_gem fog
+ chef_gem rubygem
 end
 
 # create Backup directories
