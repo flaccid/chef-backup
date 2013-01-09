@@ -99,3 +99,17 @@ attribute "backup/mail/from_address",
   :required => "optional",
   :default => "backup@doesnotexist.com",
   :recipes => [ "backup" ]
+  
+attribute "aws/aws_access_key_id",
+  :display_name => "AWS Access Key ID",
+  :description => "The AWS access key ID to be used with EC2 related backups.",
+  :required => "recommended",
+  :default => "YOUR_ACCESS_KEY",
+  :recipes => [ "aws", "backup" ]
+
+attribute "aws/aws_access_key_id",
+  :display_name => "AWS Secret Access Key",
+  :description => "The AWS secret access key to be used with EC2 related backups.",
+  :required => "recommended",
+  :default => "aws_secret_access_key",
+  :recipes => [ "aws", "backup" ]
