@@ -8,7 +8,6 @@
 #
 
 include_recipe "aws"
-include_recipe "fog"
 
 # in theory, only make will be needed for some of the gem installs (further below)
 #include_recipe "build-essential"
@@ -30,8 +29,8 @@ end
 p.run_action(:install)
 
 # Install backup, s3sync, fog, mail, whenever
-['backup', 's3sync', 'mail', 'whenever', 'popen4'].each do |rubygem|
- chef_gem rubygem
+['backup', 's3sync', 'fog', 'mail', 'whenever', 'popen4'].each do |rubygem|
+ chef_gem fog
 end
 
 # create Backup directories
